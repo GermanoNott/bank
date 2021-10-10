@@ -3,18 +3,37 @@ package germanott.bank.util;
 import germanott.bank.entity.Account;
 import germanott.bank.entity.Agency;
 import germanott.bank.entity.Bank;
+import germanott.bank.entity.Transfer;
+import germanott.bank.repository.BankRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
-
 public class BankUtil {
-    public List<Account> getAccounts(){
+    @Autowired
+    private BankRepository bankRepository;
+    public List<Transfer> transfers;
+    public List<Account> accounts;
+
+    public BankUtil() {
+        //loadDateBase();
+    }
+
+    public void loadDateBase(){
         List<Account> accounts = new ArrayList<>();
 
-        Bank bb = new Bank("001", "Banco do Brasil");
+        Bank bb = new Bank();
+        bb.setCode("001");
+        bb.setName("Banco do Brasil");
+        bb = bankRepository.save(bb);
+        Bank cef = new Bank();
+        cef.setCode("104");
+        cef.setName("Caixa Econoômica Federal");
 
-        Bank cef = new Bank("104", "Caixa Econômica Federal");
-        //TODO implementar construtor lombok na agência e na conta. Seguir exemplo do banco.
+
+
         Agency agencyBb = new Agency();
         agencyBb.setBank(bb);
         agencyBb.setNumber(321);
@@ -41,7 +60,13 @@ public class BankUtil {
         accountCef.setAgency(agencyCef);
         accounts.add(accountCef);
 
-        return accounts;
+        this.accounts = accounts;
+        Transfer transferDebit = new Transfer(accountBb, 100.0,new Date(), "DEBIT", 12345);
+        Transfer transferCredit = new Transfer(accountCef, 100.0, new Date(), "CREDIT", 12345);
+        transfers = new ArrayList<>();
+        transfers.add(transferDebit);
+        transfers.add(transferCredit);
 
     }
+
 }

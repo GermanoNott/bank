@@ -1,6 +1,5 @@
-package germanott.bank.config;
+package germanott.bank;
 
-import germanott.bank.util.BankUtil;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -9,8 +8,5 @@ public class BankApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(BankApplication.class, args);
-
-
-
 	}
 }

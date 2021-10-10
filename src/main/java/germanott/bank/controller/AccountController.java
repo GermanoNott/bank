@@ -2,19 +2,18 @@ package germanott.bank.controller;
 
 import germanott.bank.entity.Account;
 import germanott.bank.service.AccountService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/account")
 public class AccountController {
-    AccountService accountService = new AccountService();
-    @GetMapping
-    public ResponseEntity<Double> consultBalance(){
-        Account account = accountService.getAccount(123);
+    @Autowired
+    AccountService accountService;
+    @GetMapping(path = "/{idAccount}")
+    public ResponseEntity<Double> consultBalance(@PathVariable Long idAccount){
+        Account account = accountService.getAccount(idAccount);
         return ResponseEntity.ok(accountService.consultBalance(account));
     }
 }
