@@ -8,7 +8,6 @@ import javax.persistence.*;
 
 @Getter
 @Setter
-@ToString
 @Entity
 @Table(name = "tb_account")
 public class Account {
@@ -21,6 +20,4 @@ public class Account {
     private Integer number;
     private Integer digit;
     private Double balance;
-
-
 }

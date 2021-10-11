@@ -12,8 +12,8 @@ public class AccountController {
     @Autowired
     AccountService accountService;
     @GetMapping(path = "/{idAccount}")
-    public ResponseEntity<Double> consultBalance(@PathVariable Long idAccount){
-        Account account = accountService.getAccount(idAccount);
-        return ResponseEntity.ok(accountService.consultBalance(account));
+    public ResponseEntity<Double> consultBalance(@PathVariable Long idAccount) throws Exception {
+
+        return ResponseEntity.ok(accountService.getAccount(idAccount).getBalance());
     }
 }
