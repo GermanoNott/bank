@@ -20,7 +20,7 @@ https://github.com/GermanoNott/bank
 Consultar Saldo
 http://localhost:8080/account/1 //Trocar "1" por id da conta
 
-Para transferencia
+Para transferência
 Put http://localhost:8080/transfer/
 {
 "idAccountOrigin": 1,  //Usar "1" por id da conta que é incrementado em 1
