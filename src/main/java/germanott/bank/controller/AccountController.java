@@ -1,6 +1,5 @@
 package germanott.bank.controller;
 
-import germanott.bank.entity.Account;
 import germanott.bank.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

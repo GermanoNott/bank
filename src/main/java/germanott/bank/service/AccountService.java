@@ -4,7 +4,6 @@ import germanott.bank.entity.Account;
 import germanott.bank.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.Optional;
 
 @Service

@@ -8,5 +8,4 @@ import lombok.Setter;
 public class RevertTransferRequest {
     private Long idTransferCredit;
     private Long idTransferDebit;
-
 }

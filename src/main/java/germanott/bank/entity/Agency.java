@@ -2,7 +2,6 @@ package germanott.bank.entity;
 
 import lombok.Getter;
 import lombok.Setter;
-
 import javax.persistence.*;
 
 @Getter

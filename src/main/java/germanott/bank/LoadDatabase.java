@@ -60,15 +60,13 @@ class LoadDatabase {
             agencyRepository.deleteAll();
             log.info("Delete tbBank");
             bancoRepository.deleteAll();
+
             log.info("Preloading Banco Brasil" + bancoRepository.save(bb));
             log.info("Preloading CEF" + bancoRepository.save(cef));
-
             log.info("Preloading Agencia BB" + agencyRepository.save(agencyBb));
             log.info("Preloading Agencia CEF" + agencyRepository.save(agencyCef));
-
             log.info("Preloading Conta BB" + accountRepository.save(accountBb));
             log.info("Preloading Conta BB" + accountRepository.save(accountCef));
-
         };
     }
 }
