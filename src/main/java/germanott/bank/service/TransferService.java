@@ -40,8 +40,9 @@ public class TransferService {
         Optional<Transfer> optionalTransfer = transferRepository.findById(id);
         if (optionalTransfer.isPresent()){
             return optionalTransfer.get();
+        }else{
+            throw new Exception("Transfer not found");
         }
-        throw new Exception("Transfer not found");
     }
 
     public List<Transfer> revertTransfer(RevertTransferRequest revertTransferRequest) throws Exception {

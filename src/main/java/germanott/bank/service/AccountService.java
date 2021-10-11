@@ -16,8 +16,9 @@ public class AccountService {
         Optional<Account> optionalAccount = accountRepository.findById(id);
         if (optionalAccount.isPresent()){
             return optionalAccount.get();
+        }else {
+            throw new Exception("Account not found");
         }
-        throw new Exception("Account not found");
     }
 
 }
